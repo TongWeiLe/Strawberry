@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/bm_main_red_bg</item>
+        <item name="colorPrimaryDark">@color/bm_main_red_bg</item>
+        <item name="colorAccent">@color/bm_main_red_bg</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+        <!-- 窗口的背景颜色 -->
+    <style name="welcomeTheme" parent="@style/Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/bm_main_red_bg</item>
+        <item name="colorPrimaryDark">@color/bm_main_red_bg</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@mipmap/welcome</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ActivityTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginRight">15dp</item>
+    </style>
+
+</resources>

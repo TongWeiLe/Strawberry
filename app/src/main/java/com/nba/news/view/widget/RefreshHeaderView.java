@@ -76,8 +76,8 @@ public class RefreshHeaderView extends FrameLayout implements RefreshTrigger{
         animation1.setDuration(2000);
         animation1.setRepeatCount(ValueAnimator.INFINITE);
         animation1.setRepeatMode(ValueAnimator.INFINITE);
-        curry.setAnimation(animation);
-        lebron.setAnimation(animation1);
+//        curry.setAnimation(animation);
+//        lebron.setAnimation(animation1);
 
         btnSexAnimatorSet = new AnimatorSet();
         btnSexAnimatorSet.playTogether(objectAnimator1, objectAnimator2,objectAnimator3);

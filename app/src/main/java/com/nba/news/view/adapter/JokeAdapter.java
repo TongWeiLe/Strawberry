@@ -53,11 +53,10 @@ public class JokeAdapter extends RecyclerView.Adapter<JokeAdapter.JokeHolder> {
         holder.date.setText(contentlistBean.getCreate_time());
         holder.love.setText(contentlistBean.getLove());
         holder.hate.setText(contentlistBean.getHate());
-        holder.content.setText(contentlistBean.getText());
+        holder.content.setText( contentlistBean.getText().replace("\n",""));
         holder.content.post(new Runnable() {
             @Override
             public void run() {
-                int count = holder.content.getLineCount();
                 Log.e("hupu",holder.content.getLineCount() +"");
             }
         });

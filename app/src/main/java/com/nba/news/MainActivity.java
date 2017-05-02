@@ -45,10 +45,8 @@ public class MainActivity extends BaseActivity {
     }
 
 
-
     @Override
     protected void processBussiness() {
-
         tabHost.setup(getContext(),this.getSupportFragmentManager(),R.id.fragment_content);
         tabHost.getTabWidget().setDividerDrawable(null);
         LayoutInflater inflater = LayoutInflater.from(getContext());

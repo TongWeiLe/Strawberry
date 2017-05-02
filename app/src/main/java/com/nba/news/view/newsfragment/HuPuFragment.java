@@ -18,7 +18,9 @@ import com.nba.news.model.bean.JokeBean;
 import com.nba.news.presenter.JokePresenter;
 import com.nba.news.view.adapter.JokeAdapter;
 import com.nba.news.view.base.BaseFragment;
-import com.victor.loading.newton.NewtonCradleLoading;
+import com.wang.avi.AVLoadingIndicatorView;
+
+import org.litepal.tablemanager.Connector;
 
 import java.util.HashMap;
 import java.util.List;
@@ -33,17 +35,19 @@ import butterknife.InjectView;
 public class HuPuFragment extends BaseFragment implements NewsContract.View {
 
     //请求页数 pageCount
-    AtomicLong count = new AtomicLong(0);
+    AtomicLong count = new AtomicLong(1);
     private JokeAdapter jokeAdapter;
 
     private Context mContext;
     private boolean isRefreshing;
+    private int currentPageIndex;
 
     @InjectView(R.id.recyclerview)
     IRecyclerView recyclerView;
 
-    @InjectView(R.id.loading)
-    NewtonCradleLoading loading;
+    @InjectView(R.id.avloading)
+    AVLoadingIndicatorView loading;
+
 
     private JokePresenter jokePresenter;
 
@@ -60,11 +64,17 @@ public class HuPuFragment extends BaseFragment implements NewsContract.View {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        loading.show();
+        currentPageIndex = 1;
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         initPresenter();
 
         mContext = getActivity();
+
+        //Litepal 创建数据库
+        Connector.getDatabase();
 
         jokeAdapter = new JokeAdapter(mContext);
 
@@ -79,8 +89,7 @@ public class HuPuFragment extends BaseFragment implements NewsContract.View {
         recyclerView.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
-                getRemoteData(String.valueOf(count.incrementAndGet() / 2 + 1));
-              Log.e("hupu", String.valueOf(count.incrementAndGet() / 2 + 1));
+                getRemoteData(String.valueOf(count.incrementAndGet()));
             }
         });
 
@@ -112,6 +121,7 @@ public class HuPuFragment extends BaseFragment implements NewsContract.View {
             } else
             //loadmore data
             if (page > 1){
+                Log.e("page",page + "");
                 jokeAdapter.addContentlistBeanList(contentlistBeen);
                 jokeAdapter.notifyDataSetChanged();
             }
@@ -128,8 +138,6 @@ public class HuPuFragment extends BaseFragment implements NewsContract.View {
     }
 
     public void getRemoteData(String page){
-        loading.setLoadingColor(getResources().getColor(R.color.textview_color));
-        loading.start();
         HashMap<String,String> map = getCommonMap();
         map.put("page",page);
         jokePresenter.getJokeData("255-1/",map);
@@ -152,8 +160,7 @@ public class HuPuFragment extends BaseFragment implements NewsContract.View {
 
     @Override
     public void stopLoading() {
-        loading.stop();
-        loading.setVisibility(View.GONE);
+        loading.hide();
     }
 
     @Override

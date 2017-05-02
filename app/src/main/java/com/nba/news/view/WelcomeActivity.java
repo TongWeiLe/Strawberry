@@ -21,7 +21,7 @@ import butterknife.InjectView;
 
 public class WelcomeActivity extends BaseActivity {
 
-@InjectView(R.id.tv_counter_down)
+    @InjectView(R.id.tv_counter_down)
     TextView counter_down;
     @InjectView(R.id.tv_go_into_immediate)
     TextView goInto_Immediate;

@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="bm_main_red_bg">#e6454a</color>
     <color name="white">#fff</color>
+    <color name="gray_text_color">#525a67</color>
 </resources>

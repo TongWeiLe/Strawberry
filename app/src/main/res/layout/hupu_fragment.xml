@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/avloading"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        app:indicatorName="BallPulseIndicator"
+        android:layout_height="150dp" />
 
     <com.aspsine.irecyclerview.IRecyclerView
         android:id="@+id/recyclerview"
@@ -16,11 +20,7 @@
         app:refreshHeaderLayout="@layout/layout_refresh_irecyclerview_head_view"
         app:refreshEnabled="true"/>
 
-    <com.victor.loading.newton.NewtonCradleLoading
-        android:layout_gravity="center"
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"/>
 
 
-</FrameLayout>
+
+</RelativeLayout>

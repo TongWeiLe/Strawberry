@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.nba.nbanews.com.nba.news.MainActivity">
+    tools:context="com.nba.news.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:background="@color/bm_main_red_bg"
-        android:layout_height="45dp">
+        android:layout_height="40dp">
     <RelativeLayout
         style="@style/ActivityTitle">
         <TextView

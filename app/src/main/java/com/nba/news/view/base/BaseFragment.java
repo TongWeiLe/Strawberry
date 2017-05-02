@@ -32,9 +32,12 @@ public abstract class BaseFragment extends Fragment {
         initData();
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 
-
-    protected abstract View initView(LayoutInflater inflater,ViewGroup container);
+    protected abstract View initView(LayoutInflater inflater, ViewGroup container);
     protected abstract void initListener();
     protected abstract void initData();
 

@@ -6,6 +6,7 @@ import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
@@ -64,18 +65,18 @@ public class RefreshHeaderView extends FrameLayout implements RefreshTrigger{
         objectAnimator3.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator3.setRepeatMode(ValueAnimator.RESTART);
 
-        Animation animation =new RotateAnimation(0f,360f, Animation.RELATIVE_TO_SELF,
-                0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-        Animation animation1 =new RotateAnimation(0f,-360f, Animation.RELATIVE_TO_SELF,
-                0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-        animation.setFillAfter(true);
-        animation.setDuration(2000);
-        animation.setRepeatCount(ValueAnimator.INFINITE);
-        animation.setRepeatMode(ValueAnimator.INFINITE);
-        animation1.setFillAfter(true);
-        animation1.setDuration(2000);
-        animation1.setRepeatCount(ValueAnimator.INFINITE);
-        animation1.setRepeatMode(ValueAnimator.INFINITE);
+//        Animation animation =new RotateAnimation(0f,360f, Animation.RELATIVE_TO_SELF,
+//                0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+//        Animation animation1 =new RotateAnimation(0f,-360f, Animation.RELATIVE_TO_SELF,
+//                0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+//        animation.setFillAfter(true);
+//        animation.setDuration(2000);
+//        animation.setRepeatCount(ValueAnimator.INFINITE);
+//        animation.setRepeatMode(ValueAnimator.INFINITE);
+//        animation1.setFillAfter(true);
+//        animation1.setDuration(2000);
+//        animation1.setRepeatCount(ValueAnimator.INFINITE);
+//        animation1.setRepeatMode(ValueAnimator.INFINITE);
 //        curry.setAnimation(animation);
 //        lebron.setAnimation(animation1);
 
@@ -88,11 +89,13 @@ public class RefreshHeaderView extends FrameLayout implements RefreshTrigger{
 
     @Override
     public void onStart(boolean b, int i, int i1) {
+        Log.e("refresh","onStart");
         mHeight = i;
     }
 
     @Override
     public void onMove(boolean b, boolean b1, int i) {
+        Log.e("refresh","onMove");
         if (!b) {
             vs.setRotationY(i / (float) mHeight * 360);
         } else {
@@ -102,6 +105,7 @@ public class RefreshHeaderView extends FrameLayout implements RefreshTrigger{
 
     @Override
     public void onRefresh() {
+        Log.e("refresh","onRefresh");
         if(!btnSexAnimatorSet.isStarted()){
             btnSexAnimatorSet.start();
         }
@@ -109,16 +113,17 @@ public class RefreshHeaderView extends FrameLayout implements RefreshTrigger{
 
     @Override
     public void onRelease() {
-
+        Log.e("refresh","onRelease");
     }
 
     @Override
     public void onComplete() {
-
+        Log.e("refresh","onComplete");
     }
 
     @Override
     public void onReset() {
+        Log.e("refresh","onReset");
         vs.setRotation(0);
     }
 }

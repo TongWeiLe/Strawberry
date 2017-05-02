@@ -4,7 +4,7 @@
     android:weightSum="3"
     android:background="@android:color/background_dark"
     android:layout_width="match_parent"
-    android:layout_height="170dp">
+    android:layout_height="130dp">
 
     <ImageView
         android:id="@+id/ivSuperMan"
